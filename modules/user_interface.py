@@ -25,28 +25,32 @@ def play_game():
     computer_score = 0
     rounds_to_win = 3
 
-    for _ in range(rounds_to_win):
-        user_choice = get_user_choice()
-        computer_choice = get_computer_choice()
-        winner = determine_winner(user_choice, computer_choice)
-        display_result(winner)
+    try:
+        for _ in range(rounds_to_win):
+            user_choice = get_user_choice()
+            computer_choice = get_computer_choice()
+            winner = determine_winner(user_choice, computer_choice)
+            display_result(winner)
 
-        if winner == 'user':
-            user_score += 1
-        elif winner == 'computer':
-            computer_score += 1
+            if winner == 'user':
+                user_score += 1
+            elif winner == 'computer':
+                computer_score += 1
 
-        print(f"Score: You {user_score} - {computer_score} Computer")
+            print(f"Score: You {user_score} - {computer_score} Computer")
 
-        if user_score == rounds_to_win or computer_score == rounds_to_win:
-            break
+            if user_score == rounds_to_win or computer_score == rounds_to_win:
+                break
 
-    if user_score > computer_score:
-        print("Congratulations! You win the game!")
-    elif user_score < computer_score:
-        print("Sorry, the computer wins the game!")
-    else:
-        print("The game ends in a tie!")
+        if user_score > computer_score:
+            print("Congratulations! You win the game!")
+        elif user_score < computer_score:
+            print("Sorry, the computer wins the game!")
+        else:
+            print("The game ends in a tie!")
+
+    except Exception as e:
+        print(f"An error occurred: {str(e)}")
 
 def play_again():
     return input("Do you want to play again? (y/n): ").lower() == 'y'

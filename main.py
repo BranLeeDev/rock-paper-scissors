@@ -1,4 +1,4 @@
-import user_interface
+import modules.user_interface as user_interface
 
 def main():
     while True:

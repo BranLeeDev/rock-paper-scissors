@@ -1,4 +1,4 @@
-from game_logic import get_computer_choice, determine_winner
+from modules.game_logic import get_computer_choice, determine_winner
 
 def get_user_choice():
     while True:
